@@ -47,6 +47,12 @@ describe('complexOperation - Unit Tests', () => {
       jest.spyOn(basicOperations, 'exponent').mockReturnValue(4)
       expect(complexOperations.calculateArea('circle',2)).toBe(12.566370614359172);
     });
+
+    it('test for calculateArea, invalid figure', () => {
+      jest.spyOn(basicOperations, 'isSupportedFigure').mockReturnValue(true)
+      jest.spyOn(basicOperations, 'isNumber').mockReturnValue(true)
+      expect(complexOperations.calculateArea('figure123',2,3)).toBe('figure123 is not supported');
+    });
   });
 
   describe('sumGratherThan', () => {
